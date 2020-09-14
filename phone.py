@@ -7,7 +7,7 @@ class Phone():
         # print(f"Calling {other_number} from {self.number}")
 
     def text(self, other_number, msg):
-        print("Sending text to {} from {}".fromat(other_number, self.number))
+        print("Sending text to {} from {}".format(other_number, self.number))
         print(msg)
 
     def open_app(self, app_name):
@@ -29,18 +29,51 @@ class IPhone(Phone):
         if (fingerprint == self.fingerprint):
             print("Phone is unlocked")
         else:
-            print("Phone locked. Fingerprint does not match.")
+            print("Phone locked. Fingerprint does not match")
 
 
-ilyhashems_iphone = IPhone(1111111111)
-print("ilyhashem's number is {}".format(ilyhashems_iphone.number))
+martin_iphone = IPhone(8889990000)
+print("Martin's number is {}".format(martin_iphone.number))
 
-ilyhashems_iphone.set_fingerprint("password")
+martin_iphone.set_fingerprint("password")
 
-print(ilyhashems_iphone.fingerprint)
+print(martin_iphone.fingerprint)
 
-ilyhashems_iphone.unlock("password123")
+martin_iphone.unlock("password123")
+martin_iphone.call(8596990933)
+martin_iphone.open_app("Tik Tok")
 
-ilyhashems_iphone.call(2222222222)
 
-ilyhashems_iphone.open_app("Tik Tok")
+class Android(Phone):
+    def __init__(self, phone_number):
+        super().__init__(phone_number)
+        self.keyboard = "Default"
+
+    def __str__(self):
+        return "This phone is owned by {}".format(self.number)
+
+    def set_keyboard(self, new_keyboard):
+        self.keyboard = new_keyboard
+
+
+Android.ORIGIN = Android("")
+
+josh_phone = Android(5557130099)
+
+josh_phone.set_keyboard("Dvorak")
+josh_phone.call(8596990933)
+
+josh_phone.open_app("Google Play Store")
+
+print(josh_phone)
+
+# rome_android = Android(8596990933)
+
+# rome_android.set_fingerprint("password")
+# print(rome_android.fingerprint)
+
+# rome_android.call(911)
+
+# # make one class
+# # make another class with no relation to the first class
+# # try passing in both to a class and see if you have access to methods and variables
